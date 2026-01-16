@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="E-Commerce Test Suite" parallel="false" thread-count="1" verbose="1">
+
+    <parameter name="browser" value="chrome"/>
+
+    <listeners>
+        <!-- Add custom listeners here if needed -->
+    </listeners>
+
+    <test name="Product Page Tests" preserve-order="true">
+        <classes>
+            <class name="com.automation.tests.ProductPageTest">
+                <methods>
+                    <include name="testCompletePurchaseWithSizeL"/>
+                    <include name="testAddMultipleProductsToCart"/>
+                    <include name="testSizeFilterFunctionality"/>
+                    <include name="testPageTitle"/>
+                    <include name="testCartTotalDisplay"/>
+                    <include name="testEndToEndPurchaseFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
