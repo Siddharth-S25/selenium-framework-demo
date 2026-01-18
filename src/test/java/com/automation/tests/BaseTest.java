@@ -7,6 +7,8 @@ import com.automation.utils.ScreenshotUtil;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import com.automation.utils.EmailUtil;
+import java.io.File;
 
 /**
  * BaseTest class containing setup and teardown methods for all test classes
@@ -89,9 +91,42 @@ public class BaseTest {
     @AfterSuite
     public void suiteTeardown() {
         ExtentReportManager.flushReports();
+
         System.out.println("========================================");
         System.out.println("Test Execution Completed");
         System.out.println("Reports generated successfully");
         System.out.println("========================================");
+
+        // Send email with report
+        try {
+            // Get the latest report file
+            String reportFolder = config.getExtentReportFolder();
+            File folder = new File(reportFolder);
+            File[] files = folder.listFiles((dir, name) -> name.startsWith("TestReport_") && name.endsWith(".html"));
+
+            if (files != null && files.length > 0) {
+                // Get the most recent report
+                File latestReport = files[0];
+                for (File file : files) {
+                    if (file.lastModified() > latestReport.lastModified()) {
+                        latestReport = file;
+                    }
+                }
+
+                // Send email
+                System.out.println("Sending email with report...");
+                boolean emailSent = EmailUtil.sendEmailWithReport(latestReport.getAbsolutePath());
+
+                if (emailSent) {
+                    System.out.println("✅ Email sent successfully!");
+                } else {
+                    System.out.println("ℹ️ Email not sent (disabled or failed)");
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to send email: " + e.getMessage());
+        }
     }
+
+
 }

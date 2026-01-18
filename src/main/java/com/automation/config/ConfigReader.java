@@ -121,4 +121,32 @@ public class ConfigReader {
     public int getRetryCount() {
         return Integer.parseInt(getProperty("retry.count", "1"));
     }
+
+    public String getEmailSmtpHost() {
+        return getProperty("email.smtp.host");
+    }
+
+    public String getEmailSmtpPort() {
+        return getProperty("email.smtp.port");
+    }
+
+    public String getEmailUsername() {
+        return getProperty("email.username");
+    }
+
+    public String getEmailPassword() {
+        return getProperty("email.password");
+    }
+
+    public String getEmailRecipients() {
+        return getProperty("email.recipients");
+    }
+
+    public String getEmailSubject() {
+        return getProperty("email.subject");
+    }
+
+    public boolean isEmailEnabled() {
+        return Boolean.parseBoolean(getProperty("email.enabled", "false"));
+    }
 }
