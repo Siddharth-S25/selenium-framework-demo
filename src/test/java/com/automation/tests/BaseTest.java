@@ -14,7 +14,7 @@ import java.io.File;
  * BaseTest class containing setup and teardown methods for all test classes
  * Manages test lifecycle, reporting, and screenshots
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public class BaseTest {

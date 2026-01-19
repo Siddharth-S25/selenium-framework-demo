@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
  * Contains all elements and actions for the product page
  * Extends BasePage to inherit common methods
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public class ProductPage extends BasePage {

@@ -8,7 +8,7 @@ import java.util.Properties;
  * ConfigReader class to read configuration properties from config.properties file
  * Implements Singleton pattern to ensure only one instance exists
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public class ConfigReader {

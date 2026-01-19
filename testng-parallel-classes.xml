@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Parallel Classes Suite" parallel="classes" thread-count="2" verbose="1">
+
+    <parameter name="browser" value="chrome"/>
+
+    <test name="E-Commerce Tests - Parallel Classes">
+        <classes>
+            <class name="com.automation.tests.ProductPageTest"/>
+            <!-- Add more test classes here as you create them -->
+        </classes>
+    </test>
+
+</suite>

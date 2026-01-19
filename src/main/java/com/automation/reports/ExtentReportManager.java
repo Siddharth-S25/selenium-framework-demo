@@ -17,7 +17,7 @@ import java.util.Date;
  * ExtentReportManager class to manage ExtentReports for test execution
  * Generates beautiful HTML reports with screenshots
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public class ExtentReportManager {
@@ -28,8 +28,9 @@ public class ExtentReportManager {
 
     /**
      * Initialize ExtentReports
+     * This prevents multiple threads from initializing reports simultaneously
      */
-    public static void initReports() {
+    public synchronized static void initReports() {
         if (extent == null) {
             String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
             String reportPath = config.getExtentReportFolder() + "/TestReport_" + timestamp + ".html";
@@ -124,7 +125,8 @@ public class ExtentReportManager {
     /**
      * Flush reports to file
      */
-    public static void flushReports() {
+
+    public synchronized static void flushReports() {
         if (extent != null) {
             extent.flush();
         }
@@ -136,4 +138,6 @@ public class ExtentReportManager {
     public static void removeTest() {
         test.remove();
     }
+
+
 }

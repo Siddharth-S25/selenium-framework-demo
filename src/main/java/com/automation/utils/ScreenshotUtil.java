@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * ScreenshotUtil class to capture and save screenshots
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public class ScreenshotUtil {

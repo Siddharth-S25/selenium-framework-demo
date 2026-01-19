@@ -17,7 +17,7 @@ import java.time.Duration;
  * Uses ThreadLocal for parallel execution support
  * Implements Factory pattern for browser creation
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public class DriverManager {

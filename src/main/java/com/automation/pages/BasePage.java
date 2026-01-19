@@ -13,7 +13,7 @@ import java.time.Duration;
  * Implements Page Object Model design pattern
  * All page classes will extend this base class
  *
- * @author Your Name
+ * @author Sid
  * @version 1.0
  */
 public abstract class BasePage {
